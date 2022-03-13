@@ -58,6 +58,7 @@ public class JahezMobileTest extends BaseTest {
         // Other Capabilities
         desiredCapabilities.setCapability("newCommandTimeout", 100000);
         desiredCapabilities.setCapability("autoGrantPermissions", data.get("AutoGrantPermissions"));
+
         Helper.log(desiredCapabilities.toString());
         return desiredCapabilities;
     }

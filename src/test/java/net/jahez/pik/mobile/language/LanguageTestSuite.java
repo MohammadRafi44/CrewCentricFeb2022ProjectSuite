@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 public class LanguageTestSuite extends JahezMobileTest {
 
-    @Test
+   /* @Test
     public void languageTC024() {
         System.out.println("languageTC024");
-    }
+    }*/
 }

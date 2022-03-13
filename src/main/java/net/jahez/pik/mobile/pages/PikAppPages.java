@@ -1,7 +1,10 @@
 package net.jahez.pik.mobile.pages;
 
 import com.example.base.MobileActions;
+import com.example.base.MobileDriverManager;
 import com.example.utils.Helper;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -20,7 +23,7 @@ public class PikAppPages {
 
     public void assertBannerDisplayed(Map<String, String> data) throws Exception {
         boolean flag = false;
-        for (int i = 1; i < 300; i++) {
+        for (int i = 1; i < 10; i++) {
             if (MobileActions.checkIfWebElementExists(getBannerMessageObject(data.get("BannerMessage")))) {
                 flag = true;
                 break;
@@ -29,5 +32,14 @@ public class PikAppPages {
         MobileActions.takeScreenshot();
         Assert.assertTrue(flag, "Banner displayed - " + data.get("BannerMessage"));
         Helper.log("Banner displayed - " + data.get("BannerMessage"));
+    }
+
+    public void enterOTP()throws Exception{
+        MobileActions.sleep(5);
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileActions.sleep(3);
     }
 }

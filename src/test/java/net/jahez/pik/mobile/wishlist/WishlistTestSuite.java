@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 public class WishlistTestSuite extends JahezMobileTest {
 
     @Test
-    public void wishlistTC020() {
+    public void wishlistTC016() {
         System.out.println("wishlistTC020");
     }
 
     @Test
-    public void wishlistTC021() {
+    public void wishlistTC017() {
         System.out.println("wishlistTC021");
     }
 }
