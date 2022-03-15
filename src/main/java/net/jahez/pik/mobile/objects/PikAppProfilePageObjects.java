@@ -1,8 +1,6 @@
 package net.jahez.pik.mobile.objects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class PikAppProfilePageObjects {
 
@@ -52,12 +50,11 @@ public class PikAppProfilePageObjects {
     public static final By LINK_Sign_Up = By.xpath("//android.view.View[@content-desc='Sign Up']");
 
     public static final By LINK_Back = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]");
-
-
+    public static final By Link_Account_Wishlist = By.xpath("//android.widget.ImageView[@content-desc='Wishlist']");
 
     //Payments Objects
-    public static final By LINK_Payments =By.xpath(("//android.view.View[@content-desc='Payments']"));
-    public static final By LINK_Add_Card =By.xpath(("//android.view.View[@content-desc='+ Add New Card']"));
+    public static final By LINK_Payments = By.xpath(("//android.view.View[@content-desc='Payments']"));
+    public static final By LINK_Add_Card = By.xpath(("//android.view.View[@content-desc='+ Add New Card']"));
 
 
     // Radio Objects
@@ -75,11 +72,11 @@ public class PikAppProfilePageObjects {
     public static final By TEXT_Search_Product = By.xpath("//android.widget.EditText[@text='Search']");
 
 
-    public static final By TEXT_Card_Number =By.xpath(("//android.widget.EditText[@text='Card number']"));
-    public static final By TEXT_Holder_Name =By.xpath(("//android.widget.EditText[@text='Holder name']"));
+    public static final By TEXT_Card_Number = By.xpath(("//android.widget.EditText[@text='Card number']"));
+    public static final By TEXT_Holder_Name = By.xpath(("//android.widget.EditText[@text='Holder name']"));
 
-    public static final By TEXT_CVV =By.xpath(("//android.widget.EditText[@text='CVV']"));
-    public static final By TEXT_Month_Year =By.xpath(("//android.widget.EditText[@text='Month/Year']"));
+    public static final By TEXT_CVV = By.xpath(("//android.widget.EditText[@text='CVV']"));
+    public static final By TEXT_Month_Year = By.xpath(("//android.widget.EditText[@text='Month/Year']"));
 
 
     /*@FindBy(xpath = "//android.widget.EditText[@text='Search']")

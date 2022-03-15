@@ -65,13 +65,13 @@ public class RegistrationAndLoginTestSuite_BS extends JahezMobileTest {
 
     // This Test will always Run in Browser Stack
     // as the Desired Capabilities are overridden
-    @Test(dataProvider = "testDataProvider", testName = "TC005", description = "As Customer_Customer SignIn_Verify System behavior when user enter correct mobile number but the password is incorrect")
-    public void registrationAndLoginTC005(Map<String, String> data) throws Exception {
-        JahezModule jahez = new JahezModule();
-        jahez.pikApp.pages.menu.navigateToMe();
-        jahez.pikApp.pages.profilePage.openSignInPopUp();
-        jahez.pikApp.pages.profilePage.fillSignInForm(data);
-        jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.assertBannerDisplayed(data);
-    }
+//    @Test(dataProvider = "testDataProvider", testName = "TC005", description = "As Customer_Customer SignIn_Verify System behavior when user enter correct mobile number but the password is incorrect")
+//    public void registrationAndLoginTC005(Map<String, String> data) throws Exception {
+//        JahezModule jahez = new JahezModule();
+//        jahez.pikApp.pages.menu.navigateToMe();
+//        jahez.pikApp.pages.profilePage.openSignInPopUp();
+//        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+//        jahez.pikApp.pages.profilePage.signIn();
+//        jahez.pikApp.pages.assertBannerDisplayed(data);
+//    }
 }

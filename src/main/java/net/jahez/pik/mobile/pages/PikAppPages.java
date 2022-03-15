@@ -14,14 +14,18 @@ import static net.jahez.pik.mobile.objects.PikAppCommonObjects.getBannerMessageO
 public class PikAppPages {
 
     public final PikAppMenu menu;
+    public final PikAppHomePage homePage;
+    public final PikAppCategoriesPage categoriesPage;
     public final PikAppProfilePage profilePage;
 
     public PikAppPages() {
         menu = new PikAppMenu();
+        homePage = new PikAppHomePage();
+        categoriesPage = new PikAppCategoriesPage();
         profilePage = new PikAppProfilePage();
     }
 
-    public void assertBannerDisplayed(Map<String, String> data) throws Exception {
+    public void assertBannerDisplayed(Map<String, String> data) {
         boolean flag = false;
         for (int i = 1; i < 10; i++) {
             if (MobileActions.checkIfWebElementExists(getBannerMessageObject(data.get("BannerMessage")))) {
@@ -34,7 +38,7 @@ public class PikAppPages {
         Helper.log("Banner displayed - " + data.get("BannerMessage"));
     }
 
-    public void enterOTP()throws Exception{
+    public void enterOTP() {
         MobileActions.sleep(5);
         MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
         MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
