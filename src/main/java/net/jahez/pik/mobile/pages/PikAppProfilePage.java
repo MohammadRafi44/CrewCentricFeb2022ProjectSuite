@@ -72,10 +72,12 @@ public class PikAppProfilePage {
         MobileActions.click(TEXT_Password);
         MobileActions.sleep(2);
         MobileActions.enterText(TEXT_Password, data.get("Password"), "Entered Password");
+        MobileActions.sleep(5);
     }
 
     public void signIn() {
         MobileActions.click(BUTTON_Sign_In);
+        MobileActions.sleep(10);
         MobileActions.takeScreenshot();
     }
 

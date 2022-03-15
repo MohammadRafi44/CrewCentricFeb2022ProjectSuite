@@ -7,6 +7,7 @@ import static net.jahez.pik.mobile.objects.PikAppMenuObjects.*;
 public class PikAppMenu {
 
     public void navigateToHome() {
+        MobileActions.waitForElementAtIntervals(MENU_Home, 1, 5);
         MobileActions.click(MENU_Home, "Navigated to Home Page");
         MobileActions.sleep(2);
     }

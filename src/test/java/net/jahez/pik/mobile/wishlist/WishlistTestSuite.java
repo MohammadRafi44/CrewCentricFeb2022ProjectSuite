@@ -44,11 +44,11 @@ public class WishlistTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.categoriesPage.openShop(data);
         jahez.pikApp.pages.categoriesPage.openProduct(data);
         jahez.pikApp.pages.categoriesPage.removeFromWishlist();
-        jahez.pikApp.pages.categoriesPage.assertWishlistHeartIconColor("#");
+        jahez.pikApp.pages.categoriesPage.assertWishlistHeartIconColor("#f9f9fb");
         jahez.pikApp.pages.categoriesPage.navigateBackToShop();
         jahez.pikApp.pages.categoriesPage.navigateBackToCategories(data);
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openAccountWishlistPage();
-        jahez.pikApp.pages.profilePage.wishlistPage.assertProductExistInWishlist(data);
+        jahez.pikApp.pages.profilePage.wishlistPage.assertProductNotExistInWishlist(data);
     }
 }
