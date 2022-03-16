@@ -11,7 +11,7 @@ import java.util.Map;
 public class WishlistTestSuite extends JahezMobileTest {
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "As Customer_Wishlist_Validate that user can add products to wishlist", description = "")
-    public void wishlistTC017(Map<String, String> data) throws IOException {
+    public void addProductToWishList(Map<String, String> data) throws IOException {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
@@ -32,7 +32,7 @@ public class WishlistTestSuite extends JahezMobileTest {
     }
 
     @Test(dataProvider = "testDataProvider", priority = 2, testName = "As Customer_Wishlist_Validate that user can delete product from the wishlist", description = "")
-    public void wishlistTC018(Map<String, String> data) throws IOException {
+    public void deleteProductFromWishList(Map<String, String> data) throws IOException {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();

@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 public class MyAddressesTestSuite extends JahezMobileTest {
 
     @Test
-    public void myAddressesTC019() {
+    public void addNewAddress() {
         System.out.println("myAddressesTC022");
     }
 
     @Test
-    public void myAddressesTC020() {
+    public void deleteAddress() {
         System.out.println("myAddressesTC023");
     }
 }

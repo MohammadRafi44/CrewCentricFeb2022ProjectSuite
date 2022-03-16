@@ -10,7 +10,7 @@ import java.util.Map;
 public class CustomerPaymentsTestSuite extends JahezMobileTest {
 
     @Test(dataProvider = "testDataProvider", priority = 6,testName = "TC22", description = "As Customer_Payments_Validate that user can Add New Visa Card")
-    public void customerPaymentsTC022(Map<String, String> data) {
+    public void addNewVisaCard(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
@@ -21,7 +21,7 @@ public class CustomerPaymentsTestSuite extends JahezMobileTest {
 
 
     @Test(dataProvider = "testDataProvider", priority = 8, testName = "TC23", description = "As Customer_Payments_Validate that user can Add New Mada Card")
-    public void customerPaymentsTC023(Map<String, String> data) {
+    public void addNewMadaCard(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
@@ -30,12 +30,17 @@ public class CustomerPaymentsTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.addCard(data);
     }
     @Test(dataProvider = "testDataProvider", priority = 10, testName = "TC24", description = "As Customer_Payments_Validate that user can Add New Master Card")
-    public void customerPaymentsTC024(Map<String, String> data) {
+    public void addNewMasterCard(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.profilePage.addCard(data);
+    }
+
+    @Test
+    public void checkWalletAmount() {
+        System.out.println("");
     }
 }
