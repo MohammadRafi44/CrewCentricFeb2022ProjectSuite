@@ -1,17 +1,26 @@
 package net.jahez.pik.mobile.my_addresses;
 
+import net.jahez.JahezModule;
 import net.jahez.base.JahezMobileTest;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 
 public class MyAddressesTestSuite extends JahezMobileTest {
 
-    @Test
-    public void addNewAddress() {
-        System.out.println("myAddressesTC022");
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "", description = "As Customer_My Addresses_Validate that user can add new address")
+    public void addNewAddress(Map<String, String> data) {
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
+        jahez.pikApp.pages.profilePage.myAddressesPage.addNewAddress(data);
     }
 
-    @Test
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "", description = "")
     public void deleteAddress() {
         System.out.println("myAddressesTC023");
     }

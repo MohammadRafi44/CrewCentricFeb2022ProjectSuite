@@ -14,9 +14,15 @@ import static net.jahez.pik.mobile.objects.PikAppProfilePageObjects.*;
 
 public class PikAppProfilePage {
 
+    public final PikAppProfileMyAddressesPage myAddressesPage;
+    public final PikAppProfileChangePasswordPage changePasswordPage;
+    public final PikAppProfilePaymentsPage paymentsPage;
     public final PikAppProfileWishlistPage wishlistPage;
 
     public PikAppProfilePage() {
+        myAddressesPage = new PikAppProfileMyAddressesPage();
+        changePasswordPage = new PikAppProfileChangePasswordPage();
+        paymentsPage = new PikAppProfilePaymentsPage();
         wishlistPage = new PikAppProfileWishlistPage();
     }
 
@@ -241,11 +247,25 @@ public class PikAppProfilePage {
 
     }
 
+    // Profile - Account Section Menus
+    public void openAccountMyAddressesPage() {
+        MobileActions.click(Link_Account_MyAddresses, "clicked on Account My Addresses");
+        MobileActions.sleep(15);
+    }
+
+    public void openAccountChangePasswordPage() {
+        MobileActions.click(Link_Account_ChangePassword, "clicked on Account Change Password");
+        MobileActions.sleep(15);
+    }
+
+    public void openAccountPaymentsPage() {
+        MobileActions.click(Link_Account_Payments, "clicked on Account Payments");
+        MobileActions.sleep(15);
+    }
+
     public void openAccountWishlistPage() {
         MobileActions.click(Link_Account_Wishlist, "clicked on Account Wishlist");
         MobileActions.sleep(15);
     }
 
-    public void openAccountMyAddressesPage() {
-    }
 }
