@@ -109,17 +109,7 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
 
     @Test(dataProvider = "testDataProvider", testName = "TC12", description = "As Customer_Check out_Validate that user can place order and use wallet amount \n")
     public void placeAnOrderWithWalletAmount(Map<String, String> data) {
-       /* JahezModule jahez = new JahezModule();
-        jahez.pikApp.pages.menu.navigateToMe();
-        jahez.pikApp.pages.profilePage.openSignInPopUp();
-        jahez.pikApp.pages.profilePage.fillSignInForm(data);
-        jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
-        jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
-
-        jahez.pikApp.pages.profilePage.deliveryToAddress(data);
-        jahez.pikApp.pages.profilePage.placeOrder(data);*/
+        System.out.println("cartAndCheckOutTC013");
     }
 
     @Test
