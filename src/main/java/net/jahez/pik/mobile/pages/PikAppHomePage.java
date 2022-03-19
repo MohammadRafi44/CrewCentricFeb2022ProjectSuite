@@ -2,11 +2,12 @@ package net.jahez.pik.mobile.pages;
 
 import com.example.base.MobileActions;
 import com.example.base.MobileDriverManager;
+import com.example.utils.Helper;
+import org.testng.Assert;
 
 import java.util.Map;
 
-import static net.jahez.pik.mobile.objects.PikAppHomePageObjects.BUTTON_Categories_Search;
-import static net.jahez.pik.mobile.objects.PikAppHomePageObjects.TEXT_Categories_Search;
+import static net.jahez.pik.mobile.objects.PikAppHomePageObjects.*;
 
 public class PikAppHomePage {
 
@@ -21,5 +22,11 @@ public class PikAppHomePage {
 
         MobileDriverManager.getDriver().hideKeyboard();
         MobileActions.sleep(1);
+    }
+
+    public void assertHomePageDisplayed() {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(BUTTON_NewIn), "Home Page displayed.");
+        Helper.log("Home Page displayed.");
     }
 }

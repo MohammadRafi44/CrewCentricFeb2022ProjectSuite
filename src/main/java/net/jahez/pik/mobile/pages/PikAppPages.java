@@ -1,10 +1,7 @@
 package net.jahez.pik.mobile.pages;
 
 import com.example.base.MobileActions;
-import com.example.base.MobileDriverManager;
 import com.example.utils.Helper;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -36,14 +33,5 @@ public class PikAppPages {
         MobileActions.takeScreenshot();
         Assert.assertTrue(flag, "Banner displayed - " + data.get("BannerMessage"));
         Helper.log("Banner displayed - " + data.get("BannerMessage"));
-    }
-
-    public void enterOTP() {
-        MobileActions.sleep(5);
-        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        MobileActions.sleep(3);
     }
 }

@@ -4,11 +4,13 @@ import com.example.base.MobileActions;
 import com.example.base.MobileDriverManager;
 import com.example.utils.Helper;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.offset.PointOption;
+import org.testng.Assert;
 
 import java.util.Map;
 
-import static net.jahez.pik.mobile.objects.PikAppMenuObjects.MENU_Home;
 import static net.jahez.pik.mobile.objects.PikAppProfilePageObjects.*;
 
 
@@ -88,6 +90,7 @@ public class PikAppProfilePage {
     }
 
     public void signOut() {
+        MobileActions.waitForElementAtIntervals(BUTTON_Sign_Out, 1, 10);
         MobileActions.click(BUTTON_Sign_Out, "Clicked on Sign out");
         MobileActions.sleep(2);
         MobileActions.click(BUTTON_Sign_Out_Confirm, "User logged out successfully!");
@@ -95,39 +98,30 @@ public class PikAppProfilePage {
         MobileActions.takeScreenshot();
     }
 
-    public void profileValidation() {
-        MobileActions.getText(TEXT_Profile_Name);
-        MobileActions.sleep(2);
+
+    // Profile - Account Section Menus
+    public void openAccountMyAddressesPage() {
+        MobileActions.click(Link_Account_MyAddresses, "clicked on Account My Addresses");
+        MobileActions.sleep(15);
     }
 
-    @Deprecated
-    // This Method should be consumed from Menu Page - Implemented wrongly in profile page.
-    public void navigateToHome() {
-        MobileActions.click(MENU_Home, "Navigated to Home Page");
-        MobileActions.sleep(2);
+    public void openAccountChangePasswordPage() {
+        MobileActions.click(Link_Account_ChangePassword, "clicked on Account Change Password");
+        MobileActions.sleep(15);
     }
 
-    @Deprecated
-    // This Method should be consumed from Home Page - Implemented wrongly in profile page.
-    // Method Name to be generic - Implementing in Home Page
-    public void searchProduct(Map<String, String> data) {
-        MobileActions.click(BUTTON_Search_Product, "Clicked on search product");
-        MobileActions.sleep(2);
-
-        MobileActions.enterTextWithBackSpace(TEXT_Search_Product, data.get("ShopName"), "Entered Shop Name : " + data.get("ShopName"));
-        MobileActions.sleep(1);
-       /* MobileActions.enterText(TEXT_Search_Product,data.get("ShopName"), "Entered Shop Name : " + data.get("ShopName"));
-        MobileActions.sleep(1);*/
-
-        MobileDriverManager.getDriver().hideKeyboard();
-        MobileActions.sleep(1);
-
-        MobileActions.click(BUTTON_Shop, "Clicked on Shop");
-        MobileActions.sleep(3);
-
-        MobileActions.takeScreenshot();
-        MobileActions.sleep(1);
+    public void openAccountPaymentsPage() {
+        MobileActions.click(Link_Account_Payments, "clicked on Account Payments");
+        MobileActions.sleep(15);
     }
+
+    public void openAccountWishlistPage() {
+        MobileActions.click(Link_Account_Wishlist, "clicked on Account Wishlist");
+        MobileActions.sleep(15);
+    }
+
+    // Assert Methods
+
 
     public void selectSingleProductAndAddToCart(Map<String, String> data) {
 
@@ -244,28 +238,28 @@ public class PikAppProfilePage {
         MobileActions.takeScreenshot();
         MobileActions.sleep(1);
         Helper.log("Card added successfully");
-
     }
 
-    // Profile - Account Section Menus
-    public void openAccountMyAddressesPage() {
-        MobileActions.click(Link_Account_MyAddresses, "clicked on Account My Addresses");
-        MobileActions.sleep(15);
+    public void enterOTP() {
+        MobileActions.sleep(5);
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileActions.sleep(2);
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileActions.sleep(2);
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileActions.sleep(2);
+        MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        MobileActions.sleep(3);
     }
 
-    public void openAccountChangePasswordPage() {
-        MobileActions.click(Link_Account_ChangePassword, "clicked on Account Change Password");
-        MobileActions.sleep(15);
+    public void submitOTP() {
+        MobileActions.click(BUTTON_Next, "clicked on Next");
     }
 
-    public void openAccountPaymentsPage() {
-        MobileActions.click(Link_Account_Payments, "clicked on Account Payments");
-        MobileActions.sleep(15);
+    public void assertProfileScreenDisplayed(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(getElementProfile(data.get("ProfileName"))),
+                "Profile Screen displayed.");
+        Helper.log("Profile Screen displayed.");
     }
-
-    public void openAccountWishlistPage() {
-        MobileActions.click(Link_Account_Wishlist, "clicked on Account Wishlist");
-        MobileActions.sleep(15);
-    }
-
 }

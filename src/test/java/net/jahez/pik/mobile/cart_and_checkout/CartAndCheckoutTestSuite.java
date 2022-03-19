@@ -9,21 +9,31 @@ import java.util.Map;
 
 public class CartAndCheckoutTestSuite extends JahezMobileTest {
 
-    @Test(dataProvider = "testDataProvider", priority = 3, testName = "TC04", description = "As Customer_Add  Item to Cart_Validate that user can add more than one item from the same product to cart")
+    @Test(dataProvider = "testDataProvider", priority = 3, testName = "TC-004", description = "As Customer_Add  Item to Cart_Validate that user can add more than one item from the same product to cart")
     public void addMoreThanOneItemToCart(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectMoreThanOneProduct(data);
+        // assertions missing
     }
 
-    @Test
-    public void checkOutWithSelfPickUp() {
-        System.out.println("cartAndCheckOutTC005");
+    @Test(dataProvider = "testDataProvider", testName = "TC-005", description = "As Customer_Check out_Validate that user can check out with \"Self Pickup\" delivery type")
+    public void checkOutWithSelfPickUp(Map<String, String> data) {
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
+        jahez.pikApp.pages.categoriesPage.selectCategory(data);
+        jahez.pikApp.pages.categoriesPage.openShop(data);
+        jahez.pikApp.pages.categoriesPage.openProduct(data);
     }
 
     @Test(dataProvider = "testDataProvider", priority = 4, testName = "TC06", description = "As Customer_Check out_Validate that user can check out with \"Delivery\" delivery type")
@@ -33,8 +43,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
         jahez.pikApp.pages.profilePage.deliveryToAddress(data);
         //jahez.pikApp.pages.profilePage.placeOrder(data);
@@ -47,8 +57,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
 
         jahez.pikApp.pages.profilePage.deliveryToAddress(data);
@@ -68,8 +78,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
         jahez.pikApp.pages.profilePage.deliveryToAddress(data);
         jahez.pikApp.pages.profilePage.placeOrder(data);
@@ -83,8 +93,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
 
         jahez.pikApp.pages.profilePage.deliveryToAddress(data);
@@ -98,8 +108,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
 
         jahez.pikApp.pages.profilePage.deliveryToAddress(data);
@@ -129,8 +139,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
-        jahez.pikApp.pages.profilePage.navigateToHome();
-        jahez.pikApp.pages.profilePage.searchProduct(data);
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.profilePage.selectSingleProductAndAddToCart(data);
         jahez.pikApp.pages.profilePage.deliveryToAddress(data);
         jahez.pikApp.pages.profilePage.placeOrder(data);

@@ -10,7 +10,8 @@ import java.util.Map;
 
 public class WishlistTestSuite extends JahezMobileTest {
 
-    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC017", description = "As Customer_Wishlist_Validate that user can add products to wishlist")
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-017",
+            description = "As Customer_Wishlist_Validate that user can add products to wishlist")
     public void addProductToWishList(Map<String, String> data) throws IOException {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
@@ -31,7 +32,8 @@ public class WishlistTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.wishlistPage.assertProductExistInWishlist(data);
     }
 
-    @Test(dataProvider = "testDataProvider", priority = 2, testName = "TC018", description = "As Customer_Wishlist_Validate that user can delete product from the wishlist")
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-018",
+            description = "As Customer_Wishlist_Validate that user can delete product from the wishlist")
     public void deleteProductFromWishList(Map<String, String> data) throws IOException {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
