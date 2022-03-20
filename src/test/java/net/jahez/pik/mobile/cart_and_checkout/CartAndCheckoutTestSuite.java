@@ -26,11 +26,9 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.categoriesPage.selectCategory(data);
         jahez.pikApp.pages.categoriesPage.openShop(data);
         jahez.pikApp.pages.categoriesPage.openProduct(data);
-        jahez.pikApp.pages.categoriesPage.selectMoreThanOneProduct(data);
-        // TODO assertions missing
+        jahez.pikApp.pages.categoriesPage.addToCart(data);
         Helper.log("Cart Contains more than 1 item" + MobileActions.getText(LABEL_Shopping_Cart));
-        MobileActions.sleep(3);
-
+        // TODO assertions missing
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-005",

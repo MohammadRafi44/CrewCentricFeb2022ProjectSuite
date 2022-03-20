@@ -21,7 +21,7 @@ public class PikAppHomePage {
         MobileActions.sleep(1);
 
         MobileDriverManager.getDriver().hideKeyboard();
-        MobileActions.sleep(1);
+        MobileActions.sleep(5);
     }
 
     public void assertHomePageDisplayed() {

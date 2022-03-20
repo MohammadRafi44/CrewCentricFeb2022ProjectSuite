@@ -73,9 +73,11 @@ public class PikAppCategoriesPage {
         MobileActions.sleep(3);
     }
 
-    public void selectMoreThanOneProduct(Map<String, String> data) {
-        MobileActions.click(BUTTON_Add_Plus_To_Cart, "clicked on the + to add one more item");
-        MobileActions.sleep(3);
+    public void addToCart(Map<String, String> data) {
+        for (int i = 1; i < Integer.parseInt(data.get("Quantity")); i++) {
+            MobileActions.click(BUTTON_Add_Plus_To_Cart, "clicked on the + to add one more item");
+            MobileActions.sleep(3);
+        }
         MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
         MobileActions.sleep(4);
     }
