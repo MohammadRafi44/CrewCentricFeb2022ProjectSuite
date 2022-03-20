@@ -23,7 +23,7 @@ public class PikAppProfilePageObjects {
     public static final By LINK_Back = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]");
     // Profile - Account Section Links
     public static final By Link_Account_MyAddresses = By.xpath("//android.view.View[@content-desc='My Addresses']");
-    public static final By Link_Account_ChangePassword = By.xpath("//android.view.View[@content-desc='Change Password']");
+    public static final By Link_Account_ChangePassword = By.xpath("//android.widget.ImageView[@content-desc='Change Password']");
     public static final By Link_Account_Payments = By.xpath("//android.view.View[@content-desc='Payments']");
     public static final By Link_Account_Wishlist = By.xpath("//android.widget.ImageView[@content-desc='Wishlist']");
 

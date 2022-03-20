@@ -24,7 +24,7 @@ public class PikAppPages {
 
     public void assertBannerDisplayed(Map<String, String> data) {
         boolean flag = false;
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 5; i++) {
             if (MobileActions.checkIfWebElementExists(getBannerMessageObject(data.get("BannerMessage")))) {
                 flag = true;
                 break;

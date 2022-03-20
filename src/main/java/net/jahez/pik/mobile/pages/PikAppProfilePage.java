@@ -144,7 +144,6 @@ public class PikAppProfilePage {
             default:
                 MobileActions.click(BUTTON_Cash_On_Delivery, "clicked on Continue To Cash On Delivery");
                 break;
-
         }
 
         MobileActions.sleep(3);

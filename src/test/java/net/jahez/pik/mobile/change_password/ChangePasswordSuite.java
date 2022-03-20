@@ -17,5 +17,8 @@ public class ChangePasswordSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.profilePage.openAccountChangePasswordPage();
+        jahez.pikApp.pages.profilePage.changePasswordPage.changePassword(data);
+        jahez.pikApp.pages.assertBannerDisplayed(data);
+        jahez.pikApp.pages.profilePage.assertProfileScreenDisplayed(data);
     }
 }
