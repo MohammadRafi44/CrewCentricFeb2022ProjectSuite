@@ -46,7 +46,6 @@ public class PikAppProfilePageObjects {
     public static final By LABEL_Order_Cancel = By.xpath("//android.view.View[contains(@content-desc,'Cancelled')]");
     public static final By LABEL_Shopping_Cart = By.xpath("//android.widget.ImageView[contains(@content-desc,'Items')]");
 
-    public static final By BUTTON_Select_Product = By.xpath("//android.widget.ImageView[@index='0']");
     public static final By BUTTON_Add_To_Cart = By.xpath("//android.view.View[@content-desc='Add To Cart']");
     public static final By BUTTON_Add_Plus_To_Cart = By.xpath("//android.view.View[@index='4']");
 
@@ -59,41 +58,20 @@ public class PikAppProfilePageObjects {
     public static final By BUTTON_Cash_On_Delivery = By.xpath("//android.widget.ImageView[@content-desc='Cash On Delivery']");
     public static final By BUTTON_Place_Order = By.xpath("//android.widget.Button[@content-desc='Place Order']");
 
-    public static final By BUTTON_Add_Card = By.xpath("//android.view.View[@index='7']");
-    public static final By BUTTON_Add_Mada_Card = By.xpath("(//android.view.View[@content-desc=\"Add Card\"])[2]");
-
-    public static final By BUTTON_Back_From_Mada = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button");
-    public static final By BUTTON_Visa_Card = By.xpath("//android.widget.ImageView[@content-desc='**** 0001']");
-
     public static final By BUTTON_Search_Product = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button[1]");
     public static final By BUTTON_Shop = By.xpath("//android.widget.Button[@index=0]");
 
 
     public static final By BUTTON_My_Cart = By.xpath("//android.widget.ImageView[contains(@content-desc,'Cart')]");
 
-    public static final By BUTTON_CashOnDelivery = By.xpath("//android.widget.ImageView[@content-desc='Cash On Delivery']");
+    //Payments Objects
+    public static final By TEXT_Search_Product = By.xpath("//android.widget.EditText[@text='Search']");
     public static final By BUTTON_Visa = By.xpath("//android.widget.ImageView[@content-desc='**** 0001']");
     public static final By BUTTON_MasterCard = By.xpath("//android.widget.ImageView[@content-desc='**** 2346']");
     public static final By BUTTON_Mada = By.xpath("//android.widget.ImageView[@content-desc='**** 5689']");
 
-    //Payments Objects
-    public static final By LINK_Payments = By.xpath(("//android.view.View[@content-desc='Payments']"));
-    public static final By LINK_Add_Card = By.xpath(("//android.view.View[@content-desc='+ Add New Card']"));
-
-
-    public static final By TEXT_Search_Product = By.xpath("//android.widget.EditText[@text='Search']");
-
-
-    public static final By TEXT_Card_Number = By.xpath(("//android.widget.EditText[@text='Card number']"));
-    public static final By TEXT_Holder_Name = By.xpath(("//android.widget.EditText[@text='Holder name']"));
-
-    public static final By TEXT_CVV = By.xpath(("//android.widget.EditText[@text='CVV']"));
-    public static final By TEXT_Month_Year = By.xpath(("//android.widget.EditText[@text='Month/Year']"));
-
-
     /*@FindBy(xpath = "//android.widget.EditText[@text='Search']")
     public static WebElement TEXT_Search_Product;*/
-
 
 //
 //    Date :

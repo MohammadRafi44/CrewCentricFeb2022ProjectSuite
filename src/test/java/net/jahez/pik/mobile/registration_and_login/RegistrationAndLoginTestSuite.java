@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class RegistrationAndLoginTestSuite extends JahezMobileTest {
 
-    @Test(dataProvider = "testDataProvider", testName = "TC-001",
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-001",
             description = "As Customer_Customer Registration_Verify Customer can register successfully")
-    public void customerRegistration(Map<String, String> data) throws Exception {
+    public void customerRegistration(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
@@ -35,7 +35,7 @@ public class RegistrationAndLoginTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.assertProfileScreenDisplayed(data);
     }
 
-    @Test(dataProvider = "testDataProvider", priority = 2, testName = "TC-003",
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-003",
             description = "As Customer_Customer logout_Verify Customer can Logout successfully")
     public void customerLoginAndLogoutFromPIK(Map<String, String> data) {
         JahezModule jahez = new JahezModule();

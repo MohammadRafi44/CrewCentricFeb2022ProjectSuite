@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static net.jahez.pik.mobile.objects.PikAppCategoriesPageObjects.*;
+import static net.jahez.pik.mobile.objects.PikAppProfilePageObjects.*;
 
 public class PikAppCategoriesPage {
 
@@ -65,10 +66,18 @@ public class PikAppCategoriesPage {
         MobileActions.sleep(1);
     }
 
-    public void assertWishlistHeartIconColor(String colour) throws IOException {
-        String actualColor = MobileActions.getColourOfElement(Icon_WishlistHeart, "WishlistHeartIcon");
-        Assert.assertEquals(actualColor, colour, "Wishlist Heart Icon Color " + actualColor);
-        Helper.pass("Wishlist Heart Icon Color " + actualColor);
+    public void selectSingleProductAndAddToCart(Map<String, String> data) {
+        MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
+        MobileActions.sleep(3);
+        MobileActions.click(BUTTON_Proceed_Cart, "clicked on Proceed to Cart");
+        MobileActions.sleep(3);
+    }
+
+    public void selectMoreThanOneProduct(Map<String, String> data) {
+        MobileActions.click(BUTTON_Add_Plus_To_Cart, "clicked on the + to add one more item");
+        MobileActions.sleep(3);
+        MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
+        MobileActions.sleep(4);
     }
 
     public void navigateBackToShop() {
@@ -97,5 +106,11 @@ public class PikAppCategoriesPage {
         Assert.assertTrue(MobileActions.checkIfWebElementExists(getCardShop(data.get("ShopName"))),
                 data.get("ShopName") + " Shop displayed");
         Helper.pass(data.get("ShopName") + " Shop displayed");
+    }
+
+    public void assertWishlistHeartIconColor(String colour) throws IOException {
+        String actualColor = MobileActions.getColourOfElement(Icon_WishlistHeart, "WishlistHeartIcon");
+        Assert.assertEquals(actualColor, colour, "Wishlist Heart Icon Color " + actualColor);
+        Helper.pass("Wishlist Heart Icon Color " + actualColor);
     }
 }

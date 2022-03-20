@@ -20,12 +20,14 @@ public class PikAppProfilePage {
     public final PikAppProfileChangePasswordPage changePasswordPage;
     public final PikAppProfilePaymentsPage paymentsPage;
     public final PikAppProfileWishlistPage wishlistPage;
+    public final PikAppProfileEditPage editProfilePage;
 
     public PikAppProfilePage() {
         myAddressesPage = new PikAppProfileMyAddressesPage();
         changePasswordPage = new PikAppProfileChangePasswordPage();
         paymentsPage = new PikAppProfilePaymentsPage();
         wishlistPage = new PikAppProfileWishlistPage();
+        editProfilePage = new PikAppProfileEditPage();
     }
 
     public void openSignInPopUp() {
@@ -33,6 +35,7 @@ public class PikAppProfilePage {
         TouchAction action = new TouchAction(MobileDriverManager.getDriver());
         action.tap(PointOption.point(355, 408)).release().perform();
         // TODO Need to Handle in a generic way.
+        MobileActions.sleep(2);
     }
 
     public void openSignUpPopUp() {
@@ -123,32 +126,6 @@ public class PikAppProfilePage {
     // Assert Methods
 
 
-    public void selectSingleProductAndAddToCart(Map<String, String> data) {
-
-        MobileActions.click(BUTTON_Select_Product, "clicked on product");
-        MobileActions.sleep(2);
-        MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
-        MobileActions.sleep(3);
-        MobileActions.click(BUTTON_Proceed_Cart, "clicked on Proceed to Cart");
-        MobileActions.sleep(3);
-    }
-
-    public void selectMoreThanOneProduct(Map<String, String> data) {
-
-        MobileActions.click(BUTTON_Select_Product, "clicked on product");
-        MobileActions.sleep(2);
-        MobileActions.click(BUTTON_Add_Plus_To_Cart, "clicked on the + to add one more item");
-        MobileActions.sleep(3);
-        MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
-        MobileActions.sleep(4);
-        MobileActions.click(LINK_Back, "clicked on Back");
-        MobileActions.sleep(2);
-        MobileActions.click(BUTTON_My_Cart, "clicked on My Cart");
-        MobileActions.sleep(3);
-        Helper.log("Cart Contains more than 1 item" + MobileActions.getText(LABEL_Shopping_Cart));
-        MobileActions.sleep(3);
-    }
-
     public void deliveryToAddress(Map<String, String> data) {
         MobileActions.click(BUTTON_Continue_To_Purchase, "clicked on Continue To Purchase");
         MobileActions.sleep(2);
@@ -193,52 +170,6 @@ public class PikAppProfilePage {
         MobileActions.sleep(2);
     }
 
-    public void addCard(Map<String, String> data) {
-        MobileActions.click(LINK_Payments, "Clicked on Payments");
-        MobileActions.sleep(1);
-        MobileActions.click(LINK_Add_Card, "Clicked on Add New Card link");
-        MobileActions.sleep(1);
-
-        MobileActions.click(TEXT_Card_Number, "Clicked on Card Number input box");
-        MobileActions.sleep(1);
-        MobileActions.enterText(TEXT_Card_Number, data.get("CardNumber"), "Entered Card Number : " + data.get("CardNumber"));
-        MobileActions.sleep(1);
-        MobileActions.click(TEXT_Holder_Name, "Clicked on Holder name input box");
-        MobileActions.sleep(1);
-        MobileActions.enterText(TEXT_Holder_Name, data.get("HolderName"), "Entered Holder Name : " + data.get("HolderName"));
-        MobileActions.sleep(2);
-        MobileActions.click(TEXT_CVV, "Clicked on CVV input box");
-        MobileActions.sleep(1);
-        MobileActions.enterText(TEXT_CVV, data.get("CVV"), "Entered CVV : " + data.get("CVV"));
-        MobileActions.sleep(2);
-        MobileActions.click(TEXT_Month_Year, "Clicked on Month Year input box");
-        MobileActions.sleep(1);
-        MobileActions.enterText(TEXT_Month_Year, data.get("MonthYear"), "Entered Expiry Month and Year : " + data.get("MonthYear"));
-        MobileActions.sleep(2);
-        switch (data.get("HolderName")) {
-            case "VisaCard":
-                MobileActions.click(BUTTON_Add_Card, "clicked on Add Visa Card");
-                MobileActions.sleep(15);
-                break;
-            case "MadaCard":
-                MobileActions.click(BUTTON_Add_Mada_Card, "clicked on Add Mada Card");
-                MobileActions.sleep(10);
-                MobileActions.click(BUTTON_Back_From_Mada, "clicked on back from Add card");
-                MobileActions.sleep(3);
-                break;
-            case "MasterCard":
-                MobileActions.click(BUTTON_Add_Card, "clicked on Add Master Card");
-                MobileActions.sleep(15);
-                break;
-            default:
-
-                break;
-
-        }
-        MobileActions.takeScreenshot();
-        MobileActions.sleep(1);
-        Helper.log("Card added successfully");
-    }
 
     public void enterOTP() {
         MobileActions.sleep(5);
@@ -261,5 +192,13 @@ public class PikAppProfilePage {
         Assert.assertTrue(MobileActions.checkIfWebElementExists(getElementProfile(data.get("ProfileName"))),
                 "Profile Screen displayed.");
         Helper.log("Profile Screen displayed.");
+    }
+
+    public void editProfile(Map<String, String> data) {
+        MobileActions.waitForElementAtIntervals(getElementProfile(data.get("ProfileName")), 1, 5);
+        TouchAction action = new TouchAction(MobileDriverManager.getDriver());
+        action.tap(PointOption.point(970, 380)).release().perform();
+        // TODO Need to Handle in a generic way.
+        MobileActions.sleep(2);
     }
 }
