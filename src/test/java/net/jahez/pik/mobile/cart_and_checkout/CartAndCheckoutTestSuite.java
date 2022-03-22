@@ -1,14 +1,10 @@
 package net.jahez.pik.mobile.cart_and_checkout;
 
-import com.example.base.MobileActions;
-import com.example.utils.Helper;
 import net.jahez.JahezModule;
 import net.jahez.base.JahezMobileTest;
 import org.testng.annotations.Test;
 
 import java.util.Map;
-
-import static net.jahez.pik.mobile.objects.PikAppProfilePageObjects.LABEL_Shopping_Cart;
 
 
 public class CartAndCheckoutTestSuite extends JahezMobileTest {
@@ -27,8 +23,8 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.categoriesPage.openShop(data);
         jahez.pikApp.pages.categoriesPage.openProduct(data);
         jahez.pikApp.pages.categoriesPage.addToCart(data);
-        Helper.log("Cart Contains more than 1 item" + MobileActions.getText(LABEL_Shopping_Cart));
-        // TODO assertions missing
+        jahez.pikApp.pages.categoriesPage.assertItemCartQuantityValue(data);
+        jahez.pikApp.pages.categoriesPage.assertAddToCartDesignChanged();
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-005",
@@ -44,7 +40,16 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.categoriesPage.selectCategory(data);
         jahez.pikApp.pages.categoriesPage.openShop(data);
         jahez.pikApp.pages.categoriesPage.openProduct(data);
-        // TODO assertions missing
+        jahez.pikApp.pages.categoriesPage.addToCart(data);
+        jahez.pikApp.pages.categoriesPage.navigateBackToShop();
+        jahez.pikApp.pages.menu.navigateToMyCart();
+        jahez.pikApp.pages.myCartPage.expandShop(data);
+        jahez.pikApp.pages.myCartPage.continueShoppingCart();
+        jahez.pikApp.pages.myCartPage.deliveryPage.selectDeliveryType(data);
+        jahez.pikApp.pages.myCartPage.deliveryPage.continueDeliveryType();
+        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.selectPaymentMethods(data);
+        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.placeOrder();
+        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.orderDetailsPage.assertOrderDetailsPageDisplayed();
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-006",

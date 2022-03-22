@@ -13,12 +13,16 @@ public class PikAppPages {
     public final PikAppMenu menu;
     public final PikAppHomePage homePage;
     public final PikAppCategoriesPage categoriesPage;
+    public final PikAppMyCartPage myCartPage;
+    public final PikAppMyOrdersPage myOrdersPage;
     public final PikAppProfilePage profilePage;
 
     public PikAppPages() {
         menu = new PikAppMenu();
         homePage = new PikAppHomePage();
         categoriesPage = new PikAppCategoriesPage();
+        myCartPage = new PikAppMyCartPage();
+        myOrdersPage = new PikAppMyOrdersPage();
         profilePage = new PikAppProfilePage();
     }
 

@@ -115,4 +115,16 @@ public class PikAppCategoriesPage {
         Assert.assertEquals(actualColor, colour, "Wishlist Heart Icon Color " + actualColor);
         Helper.pass("Wishlist Heart Icon Color " + actualColor);
     }
+
+    public void assertItemCartQuantityValue(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        String actualQuantity = MobileActions.getAttribute(Element_CartQuantity, "content-desc");
+        Assert.assertEquals(actualQuantity, data.get("Quantity"), "Item Cart Quantity");
+        Helper.pass("Item Cart Quantity is " + data.get("Quantity"));
+    }
+
+    public void assertAddToCartDesignChanged() {
+        Assert.assertFalse(MobileActions.checkIfWebElementExists(BUTTON_Add_To_Cart), "Add to cart Button design not Changed.");
+        Helper.pass("Add to cart Button design Changed.");
+    }
 }
