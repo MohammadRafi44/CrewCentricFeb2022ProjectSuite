@@ -43,15 +43,11 @@ public class PikAppProfilePageObjects {
 
     //Label Objects
     public static final By LABEL_Order_Id = By.xpath("//android.view.View[@index='4']");
-    public static final By LABEL_Order_Cancel = By.xpath("//android.view.View[contains(@content-desc,'Cancelled')]");
     public static final By LABEL_Shopping_Cart = By.xpath("//android.widget.ImageView[contains(@content-desc,'Items')]");
 
     public static final By BUTTON_Add_To_Cart = By.xpath("//android.view.View[@content-desc='Add To Cart']");
     public static final By BUTTON_Add_Plus_To_Cart = By.xpath("//android.view.View[@index='4']");
-
     public static final By BUTTON_Proceed_Cart = By.xpath("//android.view.View[@index='7']");
-    public static final By BUTTON_Cancel_Order = By.xpath("//android.widget.Button[@content-desc='Cancel Order']");
-    public static final By BUTTON_Cancel_Yes = By.xpath("//android.widget.Button[@content-desc='Yes']");
 
     public static final By BUTTON_Continue_To_Purchase = By.xpath("//android.widget.Button[@content-desc='Continue']");
     public static final By BUTTON_Continue_Delivery = By.xpath("//android.widget.Button[@content-desc='Continue']");

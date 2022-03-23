@@ -26,4 +26,20 @@ public class PikAppConfirmOrderPage {
         MobileActions.click(Button_PlaceOrder);
         MobileActions.sleep(10);
     }
+
+    public void assertPaymentDetails(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        // TODO implement
+//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
+//                "Payment details - Cart details displayed.");
+//        Helper.log("Payment details - Cart details displayed.");
+    }
+
+    public void assertOrderDetails(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        // TODO implement
+//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
+//                "Payment details - Cart details displayed.");
+//        Helper.log("Payment details - Cart details displayed.");
+    }
 }

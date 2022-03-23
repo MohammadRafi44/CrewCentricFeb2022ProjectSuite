@@ -160,16 +160,6 @@ public class PikAppProfilePage {
         MobileActions.sleep(1);
     }
 
-    public void cancelProduct(Map<String, String> data) {
-        MobileActions.click(BUTTON_Cancel_Order, "clicked on Cancel Order");
-        MobileActions.sleep(2);
-        MobileActions.click(BUTTON_Cancel_Yes, "clicked on Cancel Yes");
-        MobileActions.sleep(2);
-        Helper.log("Order Cancelled Successfully! " + MobileActions.getText(LABEL_Order_Cancel));
-        MobileActions.sleep(2);
-    }
-
-
     public void enterOTP() {
         MobileActions.sleep(5);
         MobileDriverManager.getDriver().pressKey(new KeyEvent(AndroidKey.DIGIT_1));
