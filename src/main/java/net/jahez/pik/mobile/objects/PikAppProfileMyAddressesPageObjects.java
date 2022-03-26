@@ -10,7 +10,6 @@ public class PikAppProfileMyAddressesPageObjects {
     public static final By Button_Save = By.xpath("//android.widget.Button[@content-desc='Save']");
     public static final By Button_Yes = By.xpath("//android.widget.Button[@content-desc='Yes']");
     public static final By Button_No = By.xpath("//android.widget.Button[@content-desc='No']");
-    public static final By Button_Return = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button");
 
     // Link Objects
     public static final By Link_AddNew = By.xpath("//android.view.View[@content-desc='+ Add New']");

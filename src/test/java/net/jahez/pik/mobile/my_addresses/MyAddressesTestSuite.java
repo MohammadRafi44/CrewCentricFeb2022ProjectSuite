@@ -20,6 +20,7 @@ public class MyAddressesTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
         jahez.pikApp.pages.profilePage.myAddressesPage.deleteAllAddresses();
         jahez.pikApp.pages.profilePage.myAddressesPage.addNewAddress(data);
+        jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
         jahez.pikApp.pages.profilePage.myAddressesPage.assertAddressExist(data);
     }
@@ -35,6 +36,7 @@ public class MyAddressesTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
         jahez.pikApp.pages.profilePage.myAddressesPage.deleteAllAddresses();
         jahez.pikApp.pages.profilePage.myAddressesPage.addNewAddress(data);
+        jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
         jahez.pikApp.pages.profilePage.myAddressesPage.assertAddressExist(data);
         jahez.pikApp.pages.profilePage.myAddressesPage.deleteAddresses(data);

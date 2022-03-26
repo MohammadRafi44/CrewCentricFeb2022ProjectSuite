@@ -21,8 +21,6 @@ public class PikAppProfileMyAddressesPage {
         MobileActions.enterTextByKeyEvent(Text_NameOfAddress, data.get("AddressName"), "");
         MobileActions.click(Button_Save, "clicked on Save");
         MobileActions.sleep(5);
-        MobileActions.click(Button_Return, "clicked on Return");
-        MobileActions.sleep(5);
     }
 
     public void deleteAllAddresses() {
