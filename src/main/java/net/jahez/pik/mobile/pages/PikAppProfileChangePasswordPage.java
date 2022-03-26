@@ -22,6 +22,5 @@ public class PikAppProfileChangePasswordPage {
         MobileActions.enterText(Text_RepeatPassword, data.get("RepeatPassword"),
                 "Entered RepeatPassword : " + data.get("RepeatPassword"));
         MobileActions.click(Button_ChangePassword);
-        MobileActions.sleep(5);
     }
 }

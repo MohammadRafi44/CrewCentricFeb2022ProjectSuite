@@ -80,6 +80,7 @@ public class PikAppProfilePage {
         MobileActions.click(TEXT_Mobile);
         MobileActions.sleep(2);
         MobileActions.enterText(TEXT_Mobile, data.get("MobileNumber"), "Entered Mobile Number");
+        MobileActions.sleep(2);
         MobileActions.click(TEXT_Password);
         MobileActions.sleep(2);
         MobileActions.enterText(TEXT_Password, data.get("Password"), "Entered Password");
@@ -159,16 +160,6 @@ public class PikAppProfilePage {
         Helper.log("Order Id: " + MobileActions.getText(LABEL_Order_Id));
         MobileActions.sleep(1);
     }
-
-    public void cancelProduct(Map<String, String> data) {
-        MobileActions.click(BUTTON_Cancel_Order, "clicked on Cancel Order");
-        MobileActions.sleep(2);
-        MobileActions.click(BUTTON_Cancel_Yes, "clicked on Cancel Yes");
-        MobileActions.sleep(2);
-        Helper.log("Order Cancelled Successfully! " + MobileActions.getText(LABEL_Order_Cancel));
-        MobileActions.sleep(2);
-    }
-
 
     public void enterOTP() {
         MobileActions.sleep(5);

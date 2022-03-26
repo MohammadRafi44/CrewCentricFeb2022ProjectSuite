@@ -40,24 +40,53 @@ public class HomePageTestSuite extends JahezMobileTest {
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-028",
             description = "As Customer_Home page_Validate that user can search for shop")
     public void searchForNearByShop(Map<String, String> data) {
-        System.out.println();
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.searchCategory(data);
+        jahez.pikApp.pages.categoriesPage.selectCategory(data);
+        jahez.pikApp.pages.categoriesPage.assertShopCardDisplayed(data);
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-029",
             description = "As Customer_Home page_Validate that the banners section exists at the top of the screen")
     public void validateTheBannersSection(Map<String, String> data) {
-        System.out.println();
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.assertHomePageDisplayed();
+        jahez.pikApp.pages.homePage.assertBannerSectionDisplayed();
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-030",
             description = "As Customer_Home page_Validate that the promotional filter section exists below banners section")
     public void validateThePromotionalFilterSection(Map<String, String> data) {
-        System.out.println();
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.assertHomePageDisplayed();
+        jahez.pikApp.pages.homePage.PromotionalFilterSectionDisplayed();
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-031",
             description = "As Customer_Home page_Validate that the home page section  exists below the promotional filter section")
     public void validateTheHomePageSection(Map<String, String> data) {
-        System.out.println();
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToHome();
+        jahez.pikApp.pages.homePage.assertHomePageDisplayed();
+        jahez.pikApp.pages.homePage.HomePageSectionDisplayed();
     }
 }
