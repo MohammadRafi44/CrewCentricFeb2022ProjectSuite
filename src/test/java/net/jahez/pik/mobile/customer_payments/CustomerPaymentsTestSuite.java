@@ -51,4 +51,19 @@ public class CustomerPaymentsTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openAccountPaymentsPage();
         jahez.pikApp.pages.profilePage.paymentsPage.assertWalletBalanceDisplayed();
     }
+
+
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-032",
+            description = "As Customer_Payments_Validate that user can Add New Master Card")
+    public void addNewMasterCard(Map<String, String> data) {
+        JahezModule jahez = new JahezModule();
+        jahez.pikApp.pages.menu.navigateToMe();
+        jahez.pikApp.pages.profilePage.openSignInPopUp();
+        jahez.pikApp.pages.profilePage.fillSignInForm(data);
+        jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.profilePage.openAccountPaymentsPage();
+        jahez.pikApp.pages.profilePage.paymentsPage.addCard(data);
+        MobileActions.sleep(20);
+        jahez.pikApp.pages.profilePage.paymentsPage.assertCardExist(data);
+    }
 }
