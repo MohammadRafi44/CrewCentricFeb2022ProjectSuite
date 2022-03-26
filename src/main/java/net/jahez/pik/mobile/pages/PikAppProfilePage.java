@@ -80,6 +80,7 @@ public class PikAppProfilePage {
         MobileActions.click(TEXT_Mobile);
         MobileActions.sleep(2);
         MobileActions.enterText(TEXT_Mobile, data.get("MobileNumber"), "Entered Mobile Number");
+        MobileActions.sleep(2);
         MobileActions.click(TEXT_Password);
         MobileActions.sleep(2);
         MobileActions.enterText(TEXT_Password, data.get("Password"), "Entered Password");

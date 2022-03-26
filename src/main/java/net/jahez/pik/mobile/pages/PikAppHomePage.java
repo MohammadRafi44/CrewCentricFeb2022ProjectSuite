@@ -29,4 +29,20 @@ public class PikAppHomePage {
         Assert.assertTrue(MobileActions.checkIfWebElementExists(BUTTON_NewIn), "Home Page displayed.");
         Helper.log("Home Page displayed.");
     }
+    public void assertBannerSectionDisplayed() {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(Banner_Section), "Banner Section displayed.");
+        Helper.log("Banner Section displayed.");
+    }
+    public void PromotionalFilterSectionDisplayed() {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(Promotional_Filter), "Promotional Filter Section displayed.");
+        Helper.log("Promotional Filter Section displayed.");
+    }
+    public void HomePageSectionDisplayed() {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(HomePage_section), "Home Page Section displayed.");
+        Helper.log("Home Page Section displayed.");
+    }
+
 }
