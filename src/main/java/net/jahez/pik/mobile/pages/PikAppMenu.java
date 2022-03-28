@@ -2,8 +2,6 @@ package net.jahez.pik.mobile.pages;
 
 import com.example.base.MobileActions;
 
-import java.util.Map;
-
 import static net.jahez.pik.mobile.objects.PikAppMenuObjects.*;
 
 public class PikAppMenu {
@@ -33,17 +31,5 @@ public class PikAppMenu {
         MobileActions.waitForElementAtIntervals(MENU_ME, 1, 5);
         MobileActions.click(MENU_ME, "Navigated to Me Page");
         MobileActions.sleep(2);
-    }
-
-    public void deleteShop(Map<String, String> data) {
-        // TODO implement
-    }
-
-    public void assertShopDeleted(Map<String, String> data) {
-        MobileActions.takeScreenshot();
-        // TODO implement
-//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
-//                "Payment details - Cart details displayed.");
-//        Helper.log("Payment details - Cart details displayed.");
     }
 }

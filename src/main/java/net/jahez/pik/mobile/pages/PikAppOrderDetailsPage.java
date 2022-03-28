@@ -12,6 +12,7 @@ public class PikAppOrderDetailsPage {
 
     public void assertOrderDetailsPageDisplayed() {
         MobileActions.takeScreenshot();
+        MobileActions.waitForElementAtIntervals(Label_PurchaseSummary, 1, 5);
         Assert.assertTrue(MobileActions.checkIfWebElementExists(Label_PurchaseSummary),
                 "Order details Page displayed.");
         Helper.log("Order details Page displayed.");
@@ -28,9 +29,8 @@ public class PikAppOrderDetailsPage {
 
     public void assertOrderCancelled(Map<String, String> data) {
         MobileActions.takeScreenshot();
-        // TODO implement
-//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
-//                "Payment details - Cart details displayed.");
-//        Helper.log("Payment details - Cart details displayed.");
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(LABEL_Order_Cancel),
+                "Order Cancelled Successfully.");
+        Helper.log("Order Cancelled Successfully.");
     }
 }

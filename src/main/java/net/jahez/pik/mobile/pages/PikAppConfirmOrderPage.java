@@ -1,6 +1,11 @@
 package net.jahez.pik.mobile.pages;
 
 import com.example.base.MobileActions;
+import com.example.base.MobileDriverManager;
+import com.example.utils.Helper;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
+import org.testng.Assert;
 
 import java.util.Map;
 
@@ -14,8 +19,15 @@ public class PikAppConfirmOrderPage {
     }
 
     public void selectPaymentMethods(Map<String, String> data) {
+        MobileActions.waitForElementAtIntervals(Button_PaymentMethod_CashOnDelivery, 1, 5);
+        MobileActions.sleep(10);
+        int i = 1;
         if (data.get("CardType").equalsIgnoreCase("cash on delivery")) {
-            MobileActions.click(Button_PaymentMethod_CashOnDelivery);
+//            MobileActions.click(Button_PaymentMethod_CashOnDelivery);
+            // TODO Need to Handle in a generic way.
+            TouchAction action = new TouchAction(MobileDriverManager.getDriver());
+            action.tap(PointOption.point(500, 1150)).release().perform();
+            MobileActions.sleep(2);
         } else {
             MobileActions.click(getButtonPaymentMethod_Card(data.get("CardPartialDetails")));
         }
@@ -24,22 +36,67 @@ public class PikAppConfirmOrderPage {
 
     public void placeOrder() {
         MobileActions.click(Button_PlaceOrder);
-        MobileActions.sleep(10);
+        MobileActions.sleep(30);
+    }
+
+    public void assertProductDetails(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(getElementProduct(data.get("ProductName"))),
+                data.get("ProductName") + "Product displayed.");
+        Helper.log(data.get("ProductName") + "Product displayed.");
+    }
+
+    public void assertDeliveryAddress(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        Assert.assertEquals(MobileActions.getAttribute(Element_DeliveryAddress, "content-desc"),
+                data.get("DeliveryType"), "Delivery Type - is " + data.get("DeliveryType"));
+        Helper.log("Delivery Type - is " + data.get("DeliveryType"));
+    }
+
+    public void assertPaymentMethod(Map<String, String> data) {
+        MobileActions.takeScreenshot();
+        if (data.get("CardType").equalsIgnoreCase("cash on delivery")) {
+            Assert.assertEquals(MobileActions.getAttribute(Element_PaymentMethod, "content-desc"),
+                    data.get("CardType"), "Payment method - is " + data.get("CardType"));
+            Helper.log("Payment method - is " + data.get("CardType"));
+        } else {
+            Assert.assertEquals(MobileActions.getAttribute(Element_PaymentMethod, "content-desc"),
+                    "**** " + data.get("CardPartialDetails"),
+                    "Payment method - is " + data.get("CardType") + " Card Number" + data.get("CardPartialDetails"));
+            Helper.log("Payment method - is " + data.get("CardType") + " Card Number " + data.get("CardPartialDetails"));
+        }
+    }
+
+    public void assertUseWalletAmountSelected() {
+        MobileActions.takeScreenshot();
+        Assert.assertTrue(MobileActions.checkIfRadioButtonSelected(CheckBox_UseWalletAmount),
+                "Use Wallet Amount Selected.");
+        Helper.log("Use Wallet Amount Selected.");
     }
 
     public void assertPaymentDetails(Map<String, String> data) {
         MobileActions.takeScreenshot();
-        // TODO implement
-//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
-//                "Payment details - Cart details displayed.");
-//        Helper.log("Payment details - Cart details displayed.");
-    }
-
-    public void assertOrderDetails(Map<String, String> data) {
-        MobileActions.takeScreenshot();
-        // TODO implement
-//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
-//                "Payment details - Cart details displayed.");
-//        Helper.log("Payment details - Cart details displayed.");
+        MobileActions.scroll(100);
+        Assert.assertEquals(MobileActions.getAttribute(Element_CartTotalAmount, "content-desc").trim(),
+                "Cart Total - is " + data.get("CartTotal"));
+        Helper.log("Cart Total - is " + data.get("CartTotal"));
+        Assert.assertEquals(MobileActions.getAttribute(Element_DueWalletAmount, "content-desc").trim(),
+                "Due Wallet Amount - is " + data.get("DueWalletAmount"));
+        Helper.log("Due Wallet Amount - is " + data.get("DueWalletAmount"));
+        Assert.assertEquals(MobileActions.getAttribute(Element_VAT, "content-desc").trim(),
+                "VAT - is " + data.get("VAT"));
+        Helper.log("VAT - is " + data.get("VAT"));
+        Assert.assertEquals(MobileActions.getAttribute(Element_TotalAmount, "content-desc").trim(),
+                "Total Amount - is " + data.get("TotalAmount"));
+        Helper.log("Total Amount - is " + data.get("TotalAmount"));
+        if (data.get("DeliveryType").equalsIgnoreCase("delivery")) {
+            Assert.assertEquals(MobileActions.getAttribute(Element_DeliveryCharges, "content-desc").trim(),
+                    data.get("DeliveryCharges"), "Delivery Charge - is " + data.get("DeliveryCharges"));
+            Helper.log("Delivery Charge - is " + data.get("DeliveryCharges"));
+        } else if (data.get("DeliveryType").equalsIgnoreCase("self pickup")) {
+            Assert.assertFalse(MobileActions.checkIfWebElementExists(Element_DeliveryCharges),
+                    "Delivery Charge not applied");
+            Helper.log("Delivery Charge not applied");
+        }
     }
 }
