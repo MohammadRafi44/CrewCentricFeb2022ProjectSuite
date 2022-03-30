@@ -19,6 +19,7 @@ public class PikAppOrderDetailsPage {
     }
 
     public void cancelOrder(Map<String, String> data) {
+        MobileActions.scrollUp(200);
         MobileActions.click(BUTTON_Cancel_Order, "clicked on Cancel Order");
         MobileActions.sleep(2);
         MobileActions.click(BUTTON_Cancel_Yes, "clicked on Cancel Yes");

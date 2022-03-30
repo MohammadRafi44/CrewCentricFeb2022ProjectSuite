@@ -42,15 +42,16 @@ public class PikAppConfirmOrderPage {
     public void assertProductDetails(Map<String, String> data) {
         MobileActions.takeScreenshot();
         Assert.assertTrue(MobileActions.checkIfWebElementExists(getElementProduct(data.get("ProductName"))),
-                data.get("ProductName") + "Product displayed.");
-        Helper.log(data.get("ProductName") + "Product displayed.");
+                data.get("ProductName") + " Product displayed.");
+        Helper.log(data.get("ProductName") + " Product displayed.");
     }
 
     public void assertDeliveryAddress(Map<String, String> data) {
         MobileActions.takeScreenshot();
-        Assert.assertEquals(MobileActions.getAttribute(Element_DeliveryAddress, "content-desc"),
-                data.get("DeliveryType"), "Delivery Type - is " + data.get("DeliveryType"));
-        Helper.log("Delivery Type - is " + data.get("DeliveryType"));
+        Assert.assertTrue(MobileActions.getAttribute(Element_DeliveryAddress, "content-desc").contains(
+                data.get("DeliveryAddress")), "Delivery Type - is " + data.get("DeliveryType") + " "
+                + data.get("DeliveryAddress"));
+        Helper.log("Delivery Type - is " + data.get("DeliveryType") + " " + data.get("DeliveryAddress"));
     }
 
     public void assertPaymentMethod(Map<String, String> data) {
@@ -76,18 +77,20 @@ public class PikAppConfirmOrderPage {
 
     public void assertPaymentDetails(Map<String, String> data) {
         MobileActions.takeScreenshot();
-        MobileActions.scroll(100);
+        MobileActions.scrollUp(400);
         Assert.assertEquals(MobileActions.getAttribute(Element_CartTotalAmount, "content-desc").trim(),
-                "Cart Total - is " + data.get("CartTotal"));
+                data.get("CartTotal"), "Cart Total - is " + data.get("CartTotal"));
         Helper.log("Cart Total - is " + data.get("CartTotal"));
-        Assert.assertEquals(MobileActions.getAttribute(Element_DueWalletAmount, "content-desc").trim(),
-                "Due Wallet Amount - is " + data.get("DueWalletAmount"));
-        Helper.log("Due Wallet Amount - is " + data.get("DueWalletAmount"));
+        if (!data.get("DueWalletAmount").equalsIgnoreCase("empty")) {
+            Assert.assertEquals(MobileActions.getAttribute(Element_DueWalletAmount, "content-desc").trim(),
+                    data.get("DueWalletAmount"), "Due Wallet Amount - is " + data.get("DueWalletAmount"));
+            Helper.log("Due Wallet Amount - is " + data.get("DueWalletAmount"));
+        }
         Assert.assertEquals(MobileActions.getAttribute(Element_VAT, "content-desc").trim(),
-                "VAT - is " + data.get("VAT"));
+                data.get("VAT"), "VAT - is " + data.get("VAT"));
         Helper.log("VAT - is " + data.get("VAT"));
         Assert.assertEquals(MobileActions.getAttribute(Element_TotalAmount, "content-desc").trim(),
-                "Total Amount - is " + data.get("TotalAmount"));
+                data.get("TotalAmount"), "Total Amount - is " + data.get("TotalAmount"));
         Helper.log("Total Amount - is " + data.get("TotalAmount"));
         if (data.get("DeliveryType").equalsIgnoreCase("delivery")) {
             Assert.assertEquals(MobileActions.getAttribute(Element_DeliveryCharges, "content-desc").trim(),

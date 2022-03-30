@@ -198,6 +198,9 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToMyCart();
+        jahez.pikApp.pages.myCartPage.deleteShop(data);
+        jahez.pikApp.pages.myCartPage.assertShopDeleted(data);
         jahez.pikApp.pages.menu.navigateToHome();
         jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.categoriesPage.selectCategory(data);
@@ -220,13 +223,16 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
     }
 
     @Test(dataProvider = "testDataProvider", priority = 4, testName = "TC-013",
-            description = "As Customer_Check out_Validate that user can place order and use wallet amount \n")
+            description = "As Customer_Check out_Validate that user can check payments details before placing order")
     public void CheckPymtDetailsB4PlacingAnOrder(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
+        jahez.pikApp.pages.menu.navigateToMyCart();
+        jahez.pikApp.pages.myCartPage.deleteShop(data);
+        jahez.pikApp.pages.myCartPage.assertShopDeleted(data);
         jahez.pikApp.pages.menu.navigateToHome();
         jahez.pikApp.pages.homePage.searchCategory(data);
         jahez.pikApp.pages.categoriesPage.selectCategory(data);
@@ -238,11 +244,10 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.myCartPage.expandShop(data);
         jahez.pikApp.pages.myCartPage.continueShoppingCart();
         jahez.pikApp.pages.myCartPage.deliveryPage.selectDeliveryType(data);
+        jahez.pikApp.pages.myCartPage.deliveryPage.continueDeliveryType();
+        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.selectPaymentMethods(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertDeliveryAddress(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentMethod(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertUseWalletAmountSelected();
-        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentDetails(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.continueDeliveryType();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentDetails(data);
     }
 
@@ -265,10 +270,10 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.myCartPage.expandShop(data);
         jahez.pikApp.pages.myCartPage.continueShoppingCart();
         jahez.pikApp.pages.myCartPage.deliveryPage.selectDeliveryType(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertProductDetails(data);
+        jahez.pikApp.pages.myCartPage.deliveryPage.continueDeliveryType();
+        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.selectPaymentMethods(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertDeliveryAddress(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentMethod(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.continueDeliveryType();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertProductDetails(data);
     }
 
@@ -293,9 +298,6 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.myCartPage.deliveryPage.selectDeliveryType(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.continueDeliveryType();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.selectPaymentMethods(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertProductDetails(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertDeliveryAddress(data);
-        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentMethod(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.placeOrder();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.orderDetailsPage.assertOrderDetailsPageDisplayed();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.orderDetailsPage.cancelOrder(data);

@@ -28,8 +28,6 @@ public class PikAppMyCartPage {
     public void deleteShop(Map<String, String> data) {
         MobileActions.swipeLeft(getCardShop(data.get("ShopName")), 90);
         MobileActions.sleep(5);
-        MobileActions.click(Button_Yes, "Clicked on Yes");
-        MobileActions.sleep(5);
     }
 
     public void assertShopDeleted(Map<String, String> data) {
