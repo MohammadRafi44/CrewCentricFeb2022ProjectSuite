@@ -46,9 +46,8 @@ public class HomePageTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.menu.navigateToHome();
-        jahez.pikApp.pages.homePage.searchCategory(data);
-        jahez.pikApp.pages.categoriesPage.selectCategory(data);
-        jahez.pikApp.pages.categoriesPage.assertShopCardDisplayed(data);
+        jahez.pikApp.pages.homePage.assertHomePageDisplayed();
+        jahez.pikApp.pages.homePage.NearByShopsSectionDisplayed();
     }
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-029",
