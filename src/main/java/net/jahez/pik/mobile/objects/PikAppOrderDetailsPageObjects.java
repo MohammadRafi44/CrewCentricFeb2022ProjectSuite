@@ -10,7 +10,7 @@ public class PikAppOrderDetailsPageObjects {
 
     // Label
     public static final By Label_WaitForOrderConfirmation = By.xpath("//android.view.View[@content-desc='Please wait for accepting your order… ']");
-    public static final By Label_PurchaseSummary = By.xpath("//android.view.View[@content-desc='Purchase Summary]");
+    public static final By Label_PurchaseSummary = By.xpath("//android.view.View[@content-desc='Purchase Summary']");
 
     //Label Objects
     public static final By LABEL_Order_Cancel = By.xpath("//android.view.View[contains(@content-desc,'Cancelled')]");

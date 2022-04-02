@@ -126,5 +126,6 @@ public class PikAppCategoriesPage {
     public void assertAddToCartDesignChanged() {
         Assert.assertFalse(MobileActions.checkIfWebElementExists(BUTTON_Add_To_Cart), "Add to cart Button design not Changed.");
         Helper.pass("Add to cart Button design Changed.");
+        // TODO Image Validation can be done.
     }
 }

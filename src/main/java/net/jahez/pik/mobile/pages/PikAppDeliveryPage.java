@@ -14,6 +14,7 @@ public class PikAppDeliveryPage {
     }
 
     public void selectDeliveryType(Map<String, String> data) {
+        MobileActions.waitForElementAtIntervals(Button_Delivery, 1, 5);
         if (data.get("DeliveryType").equalsIgnoreCase("delivery")) {
             MobileActions.click(Button_Delivery, "Clicked on Delivery as Delivery Type");
         } else {
@@ -24,6 +25,6 @@ public class PikAppDeliveryPage {
 
     public void continueDeliveryType() {
         MobileActions.click(Button_Continue, "Clicked on Continue in Delivery Page.");
-        MobileActions.sleep(5);
+        MobileActions.sleep(15);
     }
 }

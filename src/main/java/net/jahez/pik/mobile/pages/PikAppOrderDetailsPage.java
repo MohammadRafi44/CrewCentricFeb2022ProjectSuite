@@ -12,12 +12,14 @@ public class PikAppOrderDetailsPage {
 
     public void assertOrderDetailsPageDisplayed() {
         MobileActions.takeScreenshot();
+        MobileActions.waitForElementAtIntervals(Label_PurchaseSummary, 1, 5);
         Assert.assertTrue(MobileActions.checkIfWebElementExists(Label_PurchaseSummary),
                 "Order details Page displayed.");
         Helper.log("Order details Page displayed.");
     }
 
     public void cancelOrder(Map<String, String> data) {
+        MobileActions.scrollUp(200);
         MobileActions.click(BUTTON_Cancel_Order, "clicked on Cancel Order");
         MobileActions.sleep(2);
         MobileActions.click(BUTTON_Cancel_Yes, "clicked on Cancel Yes");
@@ -28,9 +30,8 @@ public class PikAppOrderDetailsPage {
 
     public void assertOrderCancelled(Map<String, String> data) {
         MobileActions.takeScreenshot();
-        // TODO implement
-//        Assert.assertTrue(MobileActions.checkIfWebElementExists(),
-//                "Payment details - Cart details displayed.");
-//        Helper.log("Payment details - Cart details displayed.");
+        Assert.assertTrue(MobileActions.checkIfWebElementExists(LABEL_Order_Cancel),
+                "Order Cancelled Successfully.");
+        Helper.log("Order Cancelled Successfully.");
     }
 }
