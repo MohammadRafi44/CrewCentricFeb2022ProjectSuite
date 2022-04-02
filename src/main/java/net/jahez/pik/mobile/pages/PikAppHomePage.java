@@ -17,16 +17,18 @@ import static net.jahez.pik.mobile.objects.PikAppHomePageObjects.*;
 public class PikAppHomePage {
 
     public void searchCategory(Map<String, String> data) {
+        MobileActions.waitForElementAtIntervals(BUTTON_Categories_Search, 1, 1);
+        MobileActions.sleep(2);
         MobileActions.click(BUTTON_Categories_Search, "Clicked on Categories Search icon");
         MobileActions.sleep(2);
-
+        MobileActions.waitForElementAtIntervals(TEXT_Categories_Search, 1, 1);
         MobileActions.click(TEXT_Categories_Search);
+        MobileActions.sleep(1);
         MobileActions.enterTextByKeyEvent(TEXT_Categories_Search, data.get("CategorySearchValue"),
                 "Entered : " + data.get("CategorySearchValue"));
         MobileActions.sleep(1);
-
         MobileDriverManager.getDriver().hideKeyboard();
-        MobileActions.sleep(5);
+        MobileActions.sleep(3);
     }
 
     public void assertHomePageDisplayed() {
@@ -34,16 +36,19 @@ public class PikAppHomePage {
         Assert.assertTrue(MobileActions.checkIfWebElementExists(BUTTON_NewIn), "Home Page displayed.");
         Helper.log("Home Page displayed.");
     }
+
     public void assertBannerSectionDisplayed() {
         MobileActions.takeScreenshot();
         Assert.assertTrue(MobileActions.checkIfWebElementExists(Banner_Section), "Banner Section displayed.");
         Helper.log("Banner Section displayed.");
     }
+
     public void PromotionalFilterSectionDisplayed() {
         MobileActions.takeScreenshot();
         Assert.assertTrue(MobileActions.checkIfWebElementExists(Promotional_Filter), "Promotional Filter Section displayed.");
         Helper.log("Promotional Filter Section displayed.");
     }
+
     public void HomePageSectionDisplayed() {
         MobileActions.takeScreenshot();
         Assert.assertTrue(MobileActions.checkIfWebElementExists(HomePage_section), "Home Page Section displayed.");

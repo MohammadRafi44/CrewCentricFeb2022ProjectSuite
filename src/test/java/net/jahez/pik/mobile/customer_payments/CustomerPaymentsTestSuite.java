@@ -1,6 +1,5 @@
 package net.jahez.pik.mobile.customer_payments;
 
-import com.example.base.MobileActions;
 import net.jahez.JahezModule;
 import net.jahez.base.JahezMobileTest;
 import org.testng.annotations.Test;
@@ -20,7 +19,6 @@ public class CustomerPaymentsTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.profilePage.openAccountPaymentsPage();
         jahez.pikApp.pages.profilePage.paymentsPage.addCard(data);
-        MobileActions.sleep(20);
         jahez.pikApp.pages.profilePage.paymentsPage.assertCardExist(data);
     }
 
@@ -34,7 +32,6 @@ public class CustomerPaymentsTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.profilePage.openAccountPaymentsPage();
         jahez.pikApp.pages.profilePage.paymentsPage.addCard(data);
-        MobileActions.sleep(20);
         // TODO Remove this after clarification
         jahez.pikApp.pages.profilePage.paymentsPage.backFromAddCard();
         jahez.pikApp.pages.profilePage.paymentsPage.assertCardExist(data);
@@ -63,7 +60,6 @@ public class CustomerPaymentsTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.profilePage.openAccountPaymentsPage();
         jahez.pikApp.pages.profilePage.paymentsPage.addCard(data);
-        MobileActions.sleep(20);
         jahez.pikApp.pages.profilePage.paymentsPage.assertCardExist(data);
     }
 }

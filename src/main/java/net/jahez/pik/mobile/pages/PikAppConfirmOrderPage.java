@@ -19,9 +19,7 @@ public class PikAppConfirmOrderPage {
     }
 
     public void selectPaymentMethods(Map<String, String> data) {
-        MobileActions.waitForElementAtIntervals(Button_PaymentMethod_CashOnDelivery, 1, 5);
-        MobileActions.sleep(10);
-        int i = 1;
+        MobileActions.waitForElementAtIntervals(Button_PaymentMethod_CashOnDelivery, 1, 1);
         if (data.get("CardType").equalsIgnoreCase("cash on delivery")) {
 //            MobileActions.click(Button_PaymentMethod_CashOnDelivery);
             // TODO Need to Handle in a generic way.
@@ -31,12 +29,12 @@ public class PikAppConfirmOrderPage {
         } else {
             MobileActions.click(getButtonPaymentMethod_Card(data.get("CardPartialDetails")));
         }
-        MobileActions.sleep(10);
+        MobileActions.sleep(5);
     }
 
     public void placeOrder() {
         MobileActions.click(Button_PlaceOrder);
-        MobileActions.sleep(30);
+        MobileActions.sleep(10);
     }
 
     public void assertProductDetails(Map<String, String> data) {
@@ -68,16 +66,22 @@ public class PikAppConfirmOrderPage {
         }
     }
 
+    public void selectUseWalletAmount() {
+        MobileActions.sleep(3);
+        MobileActions.click(CheckBox_UseWalletAmount);
+        MobileActions.sleep(3);
+    }
+
     public void assertUseWalletAmountSelected() {
         MobileActions.takeScreenshot();
-        Assert.assertTrue(MobileActions.checkIfRadioButtonSelected(CheckBox_UseWalletAmount),
-                "Use Wallet Amount Selected.");
+        Assert.assertTrue(MobileActions.getAttribute(CheckBox_UseWalletAmount, "checked")
+                .equalsIgnoreCase("true"), "Use Wallet Amount Selected.");
         Helper.log("Use Wallet Amount Selected.");
     }
 
     public void assertPaymentDetails(Map<String, String> data) {
+        MobileActions.scrollUp(500);
         MobileActions.takeScreenshot();
-        MobileActions.scrollUp(400);
         Assert.assertEquals(MobileActions.getAttribute(Element_CartTotalAmount, "content-desc").trim(),
                 data.get("CartTotal"), "Cart Total - is " + data.get("CartTotal"));
         Helper.log("Cart Total - is " + data.get("CartTotal"));

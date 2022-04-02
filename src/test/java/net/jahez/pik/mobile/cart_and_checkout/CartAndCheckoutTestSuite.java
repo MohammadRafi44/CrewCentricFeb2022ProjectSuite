@@ -199,7 +199,7 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.menu.navigateToMyCart();
-        jahez.pikApp.pages.myCartPage.deleteShop(data);
+        jahez.pikApp.pages.myCartPage.deleteShopIfExist(data);
         jahez.pikApp.pages.myCartPage.assertShopDeleted(data);
         jahez.pikApp.pages.menu.navigateToHome();
         jahez.pikApp.pages.homePage.searchCategory(data);
@@ -216,6 +216,7 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.selectPaymentMethods(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertDeliveryAddress(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentMethod(data);
+        jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.selectUseWalletAmount();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertUseWalletAmountSelected();
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.assertPaymentDetails(data);
         jahez.pikApp.pages.myCartPage.deliveryPage.confirmOrderPage.placeOrder();
@@ -231,7 +232,7 @@ public class CartAndCheckoutTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.fillSignInForm(data);
         jahez.pikApp.pages.profilePage.signIn();
         jahez.pikApp.pages.menu.navigateToMyCart();
-        jahez.pikApp.pages.myCartPage.deleteShop(data);
+        jahez.pikApp.pages.myCartPage.deleteShopIfExist(data);
         jahez.pikApp.pages.myCartPage.assertShopDeleted(data);
         jahez.pikApp.pages.menu.navigateToHome();
         jahez.pikApp.pages.homePage.searchCategory(data);

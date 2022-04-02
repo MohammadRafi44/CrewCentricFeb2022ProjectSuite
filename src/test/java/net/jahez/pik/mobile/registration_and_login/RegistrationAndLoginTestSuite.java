@@ -26,7 +26,7 @@ public class RegistrationAndLoginTestSuite extends JahezMobileTest {
 
     @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-002",
             description = "As Customer_Customer_SignIn_Verify Customer can Login successfully")
-    public void customerLogintoPIK(Map<String, String> data) {
+    public void customerLoginToPIK(Map<String, String> data) {
         JahezModule jahez = new JahezModule();
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openSignInPopUp();

@@ -62,7 +62,7 @@ public class CartAndCheckoutTestSuite_IOS extends JahezMobileTest {
         return desiredCapabilities;
     }
 
-    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-007",
+    @Test(dataProvider = "testDataProvider", priority = 1, testName = "TC-008",
             description = "[iOS only] As Customer_Check out_Validate that user can place order with \"Apple Pay\" payment method")
     public void placeAnOrderWithApplePay(Map<String, String> data) {
         JahezModule jahez = new JahezModule();

@@ -12,7 +12,7 @@ public class PikAppOrderDetailsPage {
 
     public void assertOrderDetailsPageDisplayed() {
         MobileActions.takeScreenshot();
-        MobileActions.waitForElementAtIntervals(Label_PurchaseSummary, 1, 5);
+        MobileActions.waitForElementAtIntervals(Label_PurchaseSummary, 1, 1);
         Assert.assertTrue(MobileActions.checkIfWebElementExists(Label_PurchaseSummary),
                 "Order details Page displayed.");
         Helper.log("Order details Page displayed.");

@@ -5,10 +5,11 @@ import com.example.base.MobileActions;
 import java.util.Map;
 
 import static net.jahez.pik.mobile.objects.PikAppProfileChangePasswordPageObjects.*;
+import static net.jahez.pik.mobile.objects.PikAppProfilePageObjects.Link_Account_ChangePassword;
 
 public class PikAppProfileChangePasswordPage {
     public void changePassword(Map<String, String> data) {
-        MobileActions.takeScreenshot();
+        MobileActions.waitForElementAtIntervals(Text_OldPassword, 1, 1);
         MobileActions.click(Text_OldPassword);
         MobileActions.sleep(1);
         MobileActions.enterText(Text_OldPassword, data.get("OldPassword"),

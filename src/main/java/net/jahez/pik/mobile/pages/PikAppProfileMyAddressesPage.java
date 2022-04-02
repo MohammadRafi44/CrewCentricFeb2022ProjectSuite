@@ -13,7 +13,8 @@ public class PikAppProfileMyAddressesPage {
 
     public void addNewAddress(Map<String, String> data) {
         MobileActions.click(Link_AddNew, "clicked on Add New Link");
-        MobileActions.sleep(15);
+        MobileActions.sleep(5);
+        MobileActions.waitForElementAtIntervals(Button_ConfirmLocation, 1, 1);
         MobileActions.click(Button_ConfirmLocation, "clicked on Confirm Location");
         MobileActions.sleep(5);
         MobileActions.click(Text_NameOfAddress);

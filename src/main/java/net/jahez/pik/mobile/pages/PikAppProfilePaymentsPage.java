@@ -6,18 +6,21 @@ import org.testng.Assert;
 
 import java.util.Map;
 
+import static net.jahez.pik.mobile.objects.PikAppProfilePageObjects.Link_Account_Payments;
 import static net.jahez.pik.mobile.objects.PikAppProfilePaymentsPageObjects.*;
 
 public class PikAppProfilePaymentsPage {
 
     public void addCard(Map<String, String> data) {
+        MobileActions.waitForElementAtIntervals(LINK_Add_Card, 1, 1);
         MobileActions.click(LINK_Add_Card, "Clicked on Add New Card link");
-        MobileActions.sleep(5);
+        MobileActions.sleep(1);
+        MobileActions.waitForElementAtIntervals(TEXT_Card_Number, 1, 1);
         MobileActions.click(TEXT_Card_Number, "Clicked on Card Number input box");
         MobileActions.sleep(1);
         MobileActions.enterText(TEXT_Card_Number, data.get("CardNumber"),
                 "Entered Card Number : " + data.get("CardNumber"));
-        MobileActions.sleep(1);
+        MobileActions.sleep(2);
         MobileActions.click(TEXT_Holder_Name, "Clicked on Holder name input box");
         MobileActions.sleep(1);
         MobileActions.enterText(TEXT_Holder_Name, data.get("HolderName"),
@@ -26,25 +29,26 @@ public class PikAppProfilePaymentsPage {
         MobileActions.click(TEXT_CVV, "Clicked on CVV input box");
         MobileActions.sleep(1);
         MobileActions.enterText(TEXT_CVV, data.get("CVV"), "Entered CVV : " + data.get("CVV"));
-        MobileActions.sleep(2);
+        MobileActions.sleep(1);
         MobileActions.click(TEXT_Month_Year, "Clicked on Month Year input box");
         MobileActions.sleep(1);
         MobileActions.enterText(TEXT_Month_Year, data.get("MonthYear"),
                 "Entered Expiry Month and Year : " + data.get("MonthYear"));
         MobileActions.sleep(2);
-        MobileActions.takeScreenshot();
         MobileActions.click(BUTTON_Add_Card, "clicked on Add Card");
+        MobileActions.sleep(5);
     }
 
     public void backFromAddCard() {
+        MobileActions.waitForElementAtIntervals(BUTTON_BackFromAddCard, 1, 1);
         MobileActions.click(BUTTON_BackFromAddCard, "clicked on Back from Add Card");
-        MobileActions.sleep(2);
+        MobileActions.sleep(5);
     }
 
     // Assert Methods
     public void assertCardExist(Map<String, String> data) {
         String cardPartialDetails = data.get("CardPartialDetails");
-        MobileActions.waitForElementAtIntervals(getElementCards(cardPartialDetails), 1, 5);
+        MobileActions.waitForElementAtIntervals(getElementCards(cardPartialDetails), 1, 1);
         MobileActions.takeScreenshot();
         Assert.assertTrue(MobileActions.checkIfWebElementExists(getElementCards(cardPartialDetails)),
                 cardPartialDetails + " card exist");

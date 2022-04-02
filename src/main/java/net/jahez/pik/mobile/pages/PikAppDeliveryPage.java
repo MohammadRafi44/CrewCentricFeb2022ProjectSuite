@@ -14,17 +14,17 @@ public class PikAppDeliveryPage {
     }
 
     public void selectDeliveryType(Map<String, String> data) {
-        MobileActions.waitForElementAtIntervals(Button_Delivery, 1, 5);
+        MobileActions.waitForElementAtIntervals(Button_Delivery, 1, 1);
         if (data.get("DeliveryType").equalsIgnoreCase("delivery")) {
             MobileActions.click(Button_Delivery, "Clicked on Delivery as Delivery Type");
         } else {
             MobileActions.click(Button_SelfPickUp, "Clicked on Self PickUp as Delivery Type");
         }
-        MobileActions.sleep(10);
+        MobileActions.sleep(3);
     }
 
     public void continueDeliveryType() {
         MobileActions.click(Button_Continue, "Clicked on Continue in Delivery Page.");
-        MobileActions.sleep(15);
+        MobileActions.sleep(5);
     }
 }

@@ -19,58 +19,47 @@ public class PikAppCategoriesPage {
         } else {
             MobileActions.click(Link_Products, "Clicked on Products");
         }
-        MobileActions.sleep(3);
+        MobileActions.sleep(2);
     }
 
     public void openShop(Map<String, String> data) {
         MobileActions.click(getCardShop(data.get("ShopName")),
                 "Clicked on Shop " + data.get("ShopName"));
-        MobileActions.sleep(3);
-
-        MobileActions.takeScreenshot();
-        MobileActions.sleep(1);
+        MobileActions.sleep(2);
     }
 
     public void openProduct(Map<String, String> data) {
         MobileActions.click(getCardProduct(data.get("ProductName")),
                 "Clicked on Product " + data.get("ProductName"));
-        MobileActions.sleep(3);
-
-        MobileActions.takeScreenshot();
-        MobileActions.sleep(1);
+        MobileActions.sleep(2);
     }
 
     public void addToWishlist() throws IOException {
         if (MobileActions.getColourOfElement(Icon_WishlistHeart, "WishlistHeartIcon").equals("#e53935")) {
             MobileActions.click(Icon_WishlistHeart);
-            MobileActions.sleep(10);
+            MobileActions.sleep(5);
             MobileActions.takeScreenshot();
         }
         MobileActions.click(Icon_WishlistHeart, "Clicked on Wishlist heart icon");
-        MobileActions.sleep(10);
-
+        MobileActions.sleep(5);
         MobileActions.takeScreenshot();
-        MobileActions.sleep(1);
     }
 
     public void removeFromWishlist() throws IOException {
         if (!MobileActions.getColourOfElement(Icon_WishlistHeart, "WishlistHeartIcon").equals("#e53935")) {
             MobileActions.click(Icon_WishlistHeart);
-            MobileActions.sleep(10);
+            MobileActions.sleep(5);
             MobileActions.takeScreenshot();
         }
         MobileActions.click(Icon_WishlistHeart, "Clicked on Wishlist heart icon");
-        MobileActions.sleep(10);
-
+        MobileActions.sleep(5);
         MobileActions.takeScreenshot();
-        MobileActions.sleep(1);
     }
 
     public void selectSingleProductAndAddToCart(Map<String, String> data) {
         MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
-        MobileActions.sleep(3);
+        MobileActions.sleep(5);
         MobileActions.click(BUTTON_Proceed_Cart, "clicked on Proceed to Cart");
-        MobileActions.sleep(3);
     }
 
     public void addToCart(Map<String, String> data) {
@@ -79,18 +68,18 @@ public class PikAppCategoriesPage {
             MobileActions.sleep(3);
         }
         MobileActions.click(BUTTON_Add_To_Cart, "clicked on Add To Product");
-        MobileActions.sleep(4);
+        MobileActions.sleep(5);
     }
 
     public void navigateBackToShop() {
         MobileActions.click(Icon_BackToShop, "Clicked on Back icon");
-        MobileActions.sleep(3);
+        MobileActions.sleep(5);
     }
 
     public void navigateBackToCategories(Map<String, String> data) {
         MobileActions.click(getIconBackToCategories(data.get("ShopName")),
                 "Clicked on Back Icon of " + data.get("ShopName"));
-        MobileActions.sleep(3);
+        MobileActions.sleep(5);
         MobileDriverManager.getDriver().hideKeyboard();
         MobileActions.sleep(1);
     }
