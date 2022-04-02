@@ -1,9 +1,8 @@
 package net.jahez.pik.mobile.my_addresses;
 
-import com.example.base.MobileDriverManager;
+import com.example.base.MobileActions;
 import net.jahez.JahezModule;
 import net.jahez.base.JahezMobileTest;
-import org.openqa.selenium.html5.Location;
 import org.testng.annotations.Test;
 
 import java.util.Map;
@@ -22,6 +21,7 @@ public class MyAddressesTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
         jahez.pikApp.pages.profilePage.myAddressesPage.deleteAllAddresses();
         jahez.pikApp.pages.profilePage.myAddressesPage.addNewAddress(data);
+        MobileActions.sleep(20);
         // Workaround step remove once bug fixed
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
@@ -40,6 +40,7 @@ public class MyAddressesTestSuite extends JahezMobileTest {
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
         jahez.pikApp.pages.profilePage.myAddressesPage.deleteAllAddresses();
         jahez.pikApp.pages.profilePage.myAddressesPage.addNewAddress(data);
+        MobileActions.sleep(20);
         // Workaround step remove once bug fixed
         jahez.pikApp.pages.menu.navigateToMe();
         jahez.pikApp.pages.profilePage.openAccountMyAddressesPage();
