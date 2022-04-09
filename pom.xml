@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.testcrew</groupId>
-    <artifactId>jahez-test-suite</artifactId>
+    <artifactId>zatca-test-suite</artifactId>
     <version>1.0.0</version>
 
-    <name>jahez-test-suite</name>
-    <url>https://www.jahez.net</url>
+    <name>zatca-test-suite</name>
+    <url>https://www.zatca.gov.sa</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

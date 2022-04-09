@@ -9,7 +9,7 @@
     </listeners>
     <test name="All Tests">
         <packages>
-            <package name="net.jahez.*"/>
+            <package name="sa.gov.zatca.*"/>
         </packages>
     </test>
 </suite>
